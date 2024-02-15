@@ -28,6 +28,7 @@ async def get_monitoring():
     mem_percent_gb = mem_percent / (1024**3)  # Conversion de bytes en gigaoctets
 
     # Mise à jour de monitoring_data avec les nouvelles valeurs en gigaoctets
+    
     monitoring_data_gb = {
         "cpu_percent": cpu_percent,
         "disk_usage": disk_usage_gb,
