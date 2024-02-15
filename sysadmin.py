@@ -1,7 +1,4 @@
 import os
-from fastapi import FastAPI
-
-app = FastAPI()
 
 def new_user():
     confirm = "N"
