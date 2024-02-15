@@ -26,7 +26,7 @@ This project is a RESTful API built with FastAPI that provides server monitoring
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your_username/server-monitoring-api.git
+   git clone https://github.com/AWS-Re-Start-RDC-KINSHASA-1/server-usage.git
    
 2. Install the dependencies:
    ```shell
