@@ -16,19 +16,25 @@ async def get_monitoring():
     mem = psutil.virtual_memory()
     mem_percent = mem.percent
 
-    # Création du dictionnaire de résultats
-    monitoring_data = {
-        "cpu_percent": cpu_percent,
-        "disk_usage": {
-            "total": disk_usage.total,
-            "used": disk_usage.used,
-            "free": disk_usage.free,
-            "percent": disk_usage.percent
-        },
-        "mem_percent": mem_percent
+    # Conversion de disk_usage en gigaoctets
+    disk_usage_gb = {
+        "total": disk_usage.total / (1024**3),  # Conversion de bytes en gigaoctets
+        "used": disk_usage.used / (1024**3),
+        "free": disk_usage.free / (1024**3),
+        "percent": disk_usage.percent
     }
 
-    return monitoring_data
+    # Conversion de mem_percent en gigaoctets
+    mem_percent_gb = mem_percent / (1024**3)  # Conversion de bytes en gigaoctets
+
+    # Mise à jour de monitoring_data avec les nouvelles valeurs en gigaoctets
+    monitoring_data_gb = {
+        "cpu_percent": cpu_percent,
+        "disk_usage": disk_usage_gb,
+        "mem_percent": mem_percent_gb
+    }
+
+    return monitoring_data_gb
 
 if __name__ == "__main__":
     import uvicorn
